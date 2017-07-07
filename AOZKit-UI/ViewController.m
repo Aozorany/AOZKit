@@ -23,7 +23,9 @@
     [super viewDidLoad];
     
     [[UIView alloc] init].aozAddToSuperview(self.view).aozFrame(CGRectMake(50, 50, 50, 50)).aozBackgroundColor([UIColor redColor]);
-    [[UILabel alloc] init].aozAddToSuperview(self.view).aozFrame(CGRectMake(50, 100, 100, 30)).aozFont([UIFont systemFontOfSize:17]).aozTextColor([UIColor redColor]).aozBackgroundColor([UIColor lightGrayColor]);
+    [[UILabel alloc] init].aozAddToSuperview(self.view).aozFrame(CGRectMake(50, 100, 200, 30)).aozFont([UIFont systemFontOfSize:17]).aozTextColor([UIColor redColor]).aozText(@"This is text.").aozBackgroundColor([UIColor lightGrayColor]);
+    
+    NSLog(@"DONE");
 }
 
 @end
