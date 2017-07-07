@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D569401F1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D569401B1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h */; };
+		D56940201F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */; };
+		D56940211F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */; };
+		D56940221F0F6572005F0ED6 /* UITableView+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D569401D1F0F6572005F0ED6 /* UITableView+AOZCategory.h */; };
+		D56940231F0F6572005F0ED6 /* UITableView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401E1F0F6572005F0ED6 /* UITableView+AOZCategory.m */; };
+		D56940241F0F6572005F0ED6 /* UITableView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401E1F0F6572005F0ED6 /* UITableView+AOZCategory.m */; };
 		D5CC75BD1F0D26F900E85EB2 /* UIButton+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D5CC75B71F0D26F900E85EB2 /* UIButton+AOZCategory.h */; };
 		D5CC75BE1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CC75B81F0D26F900E85EB2 /* UIButton+AOZCategory.m */; };
 		D5CC75BF1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CC75B81F0D26F900E85EB2 /* UIButton+AOZCategory.m */; };
@@ -36,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D569401B1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AOZCategory.h"; sourceTree = "<group>"; };
+		D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AOZCategory.m"; sourceTree = "<group>"; };
+		D569401D1F0F6572005F0ED6 /* UITableView+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+AOZCategory.h"; sourceTree = "<group>"; };
+		D569401E1F0F6572005F0ED6 /* UITableView+AOZCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+AOZCategory.m"; sourceTree = "<group>"; };
 		D5CC75B71F0D26F900E85EB2 /* UIButton+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+AOZCategory.h"; sourceTree = "<group>"; };
 		D5CC75B81F0D26F900E85EB2 /* UIButton+AOZCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+AOZCategory.m"; sourceTree = "<group>"; };
 		D5CC75B91F0D26F900E85EB2 /* UITextField+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+AOZCategory.h"; sourceTree = "<group>"; };
@@ -123,6 +133,10 @@
 				D5CC75BA1F0D26F900E85EB2 /* UITextField+AOZCategory.m */,
 				D5CC75BB1F0D26F900E85EB2 /* UITextView+AOZCategory.h */,
 				D5CC75BC1F0D26F900E85EB2 /* UITextView+AOZCategory.m */,
+				D569401B1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h */,
+				D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */,
+				D569401D1F0F6572005F0ED6 /* UITableView+AOZCategory.h */,
+				D569401E1F0F6572005F0ED6 /* UITableView+AOZCategory.m */,
 			);
 			path = AOZKit;
 			sourceTree = "<group>";
@@ -158,7 +172,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5F8A1311F07803F003F4C13 /* UILabel+AOZCategory.h in Headers */,
+				D569401F1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h in Headers */,
 				D5E0B9FF1F065BE3009EF067 /* UIView+AOZCategory.h in Headers */,
+				D56940221F0F6572005F0ED6 /* UITableView+AOZCategory.h in Headers */,
 				D5CC75C01F0D26F900E85EB2 /* UITextField+AOZCategory.h in Headers */,
 				D5F8A12E1F0746A9003F4C13 /* AOZTimeDebugger.h in Headers */,
 				D5F8A1361F079A1D003F4C13 /* UIImageView+AOZCategory.h in Headers */,
@@ -267,9 +283,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D56940231F0F6572005F0ED6 /* UITableView+AOZCategory.m in Sources */,
 				D5CC75C41F0D26F900E85EB2 /* UITextView+AOZCategory.m in Sources */,
 				D5CC75C11F0D26F900E85EB2 /* UITextField+AOZCategory.m in Sources */,
 				D5E0BA001F065BE3009EF067 /* UIView+AOZCategory.m in Sources */,
+				D56940201F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */,
 				D5F8A1371F079A1D003F4C13 /* UIImageView+AOZCategory.m in Sources */,
 				D5CC75BE1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */,
 				D5F8A1321F07803F003F4C13 /* UILabel+AOZCategory.m in Sources */,
@@ -282,12 +300,14 @@
 			files = (
 				D5F8A1331F07803F003F4C13 /* UILabel+AOZCategory.m in Sources */,
 				D5F8A1381F079A1D003F4C13 /* UIImageView+AOZCategory.m in Sources */,
+				D56940211F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */,
 				D5E0B9EC1F0659BC009EF067 /* ViewController.m in Sources */,
 				D5CC75C51F0D26F900E85EB2 /* UITextView+AOZCategory.m in Sources */,
 				D5CC75BF1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */,
 				D5E0B9F71F0659BC009EF067 /* main.m in Sources */,
 				D5E0B9E91F0659BC009EF067 /* AppDelegate.m in Sources */,
 				D5CC75C21F0D26F900E85EB2 /* UITextField+AOZCategory.m in Sources */,
+				D56940241F0F6572005F0ED6 /* UITableView+AOZCategory.m in Sources */,
 				D5E0BA011F065BE3009EF067 /* UIView+AOZCategory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

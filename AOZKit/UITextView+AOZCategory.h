@@ -36,6 +36,41 @@
 - (UITextView * (^)(UIView *))aozInputView;
 - (UITextView * (^)(UIView *))aozInputAccessoryView;
 
+#pragma mark Delegate
+
+#pragma mark Display of Content
+- (UITextView * (^)(CGPoint))aozContentOffset;
+- (UITextView * (^)(CGSize))aozContentSize;
+- (UITextView * (^)(UIEdgeInsets))aozContentInset;
+
+#pragma mark Managing Scrolling
+- (UITextView * (^)(BOOL))aozScrollEnabled;
+- (UITextView * (^)(BOOL))aozDirectionalLockEnabled;
+- (UITextView * (^)(BOOL))aozScrollsToTop;
+- (UITextView * (^)(BOOL))aozPagingEnabled;
+- (UITextView * (^)(BOOL))aozBounces;
+- (UITextView * (^)(BOOL))aozAlwaysBounceVertical;
+- (UITextView * (^)(BOOL))aozAlwaysBounceHorizontal;
+- (UITextView * (^)(BOOL))aozCanCancelContentTouches;
+- (UITextView * (^)(BOOL))aozDelaysContentTouches;
+- (UITextView * (^)(CGFloat))aozDecelerationRate;
+
+#pragma mark Scroll Indicator 
+- (UITextView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle;
+- (UITextView * (^)(UIEdgeInsets))aozScrollIndicatorInsets;
+- (UITextView * (^)(BOOL))aozShowsHorizontalScrollIndicator;
+- (UITextView * (^)(BOOL))aozShowsVerticalScrollIndicator;
+
+#pragma mark Zooming and Panning
+- (UITextView * (^)(CGFloat))aozZoomScale;
+- (UITextView * (^)(CGFloat))aozMaximumZoomScale;
+- (UITextView * (^)(CGFloat))aozMinimumZoomScale;
+- (UITextView * (^)(BOOL))aozBouncesZoom;
+
+#pragma mark Keyboard and Index
+- (UITextView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
+- (UITextView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode;
+
 #pragma mark Superviews
 - (UITextView * (^)(UIView *))aozAddToSuperview;
 

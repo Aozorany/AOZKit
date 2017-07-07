@@ -135,6 +135,173 @@
     };
 }
 
+#pragma mark public: Delegate
+#pragma mark public: Display of Content
+- (UITextView * (^)(CGPoint))aozContentOffset {
+    return ^(CGPoint contentOffset) {
+        self.contentOffset = contentOffset;
+        return self;
+    };
+}
+
+- (UITextView * (^)(CGSize))aozContentSize {
+    return ^(CGSize contentSize) {
+        self.contentSize = contentSize;
+        return self;
+    };
+}
+
+- (UITextView * (^)(UIEdgeInsets))aozContentInset {
+    return ^(UIEdgeInsets contentInset) {
+        self.contentInset = contentInset;
+        return self;
+    };
+}
+
+#pragma mark public: Managing Scrolling
+- (UITextView * (^)(BOOL))aozScrollEnabled {
+    return ^(BOOL scrollEnabled) {
+        self.scrollEnabled = scrollEnabled;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozDirectionalLockEnabled {
+    return ^(BOOL directionalLockEnabled) {
+        self.directionalLockEnabled = directionalLockEnabled;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozScrollsToTop {
+    return ^(BOOL scrollsToTop) {
+        self.scrollsToTop = scrollsToTop;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozPagingEnabled {
+    return ^(BOOL pagingEnabled) {
+        self.pagingEnabled = pagingEnabled;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozBounces {
+    return ^(BOOL bounces) {
+        self.bounces = bounces;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozAlwaysBounceVertical {
+    return ^(BOOL alwaysBounceVertical) {
+        self.alwaysBounceVertical = alwaysBounceVertical;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozAlwaysBounceHorizontal {
+    return ^(BOOL alwaysBounceHorizontal) {
+        self.alwaysBounceHorizontal = alwaysBounceHorizontal;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozCanCancelContentTouches {
+    return ^(BOOL canCancelContentTouches) {
+        self.canCancelContentTouches = canCancelContentTouches;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozDelaysContentTouches {
+    return ^(BOOL delaysContentTouches) {
+        self.delaysContentTouches = delaysContentTouches;
+        return self;
+    };
+}
+
+- (UITextView * (^)(CGFloat))aozDecelerationRate {
+    return ^(CGFloat decelerationRate) {
+        self.decelerationRate = decelerationRate;
+        return self;
+    };
+}
+
+#pragma mark public: Scroll Indicator 
+- (UITextView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle {
+    return ^(UIScrollViewIndicatorStyle indicatorStyle) {
+        self.indicatorStyle = indicatorStyle;
+        return self;
+    };
+}
+
+- (UITextView * (^)(UIEdgeInsets))aozScrollIndicatorInsets {
+    return ^(UIEdgeInsets scrollIndicatorInsets) {
+        self.scrollIndicatorInsets = scrollIndicatorInsets;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozShowsHorizontalScrollIndicator {
+    return ^(BOOL showsHorizontalScrollIndicator) {
+        self.showsHorizontalScrollIndicator = showsHorizontalScrollIndicator;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozShowsVerticalScrollIndicator {
+    return ^(BOOL showsVerticalScrollIndicator) {
+        self.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
+        return self;
+    };
+}
+
+#pragma mark public: Zooming and Panning
+- (UITextView * (^)(CGFloat))aozZoomScale {
+    return ^(CGFloat zoomScale) {
+        self.zoomScale = zoomScale;
+        return self;
+    };
+}
+
+- (UITextView * (^)(CGFloat))aozMaximumZoomScale {
+    return ^(CGFloat maximumZoomScale) {
+        self.maximumZoomScale = maximumZoomScale;
+        return self;
+    };
+}
+
+- (UITextView * (^)(CGFloat))aozMinimumZoomScale {
+    return ^(CGFloat minimumZoomScale) {
+        self.minimumZoomScale = minimumZoomScale;
+        return self;
+    };
+}
+
+- (UITextView * (^)(BOOL))aozBouncesZoom {
+    return ^(BOOL bouncesZoom) {
+        self.bouncesZoom = bouncesZoom;
+        return self;
+    };
+}
+
+#pragma mark public: Keyboard and Index
+- (UITextView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode {
+    return ^(UIScrollViewKeyboardDismissMode keyboardDismissMode) {
+        self.keyboardDismissMode = keyboardDismissMode;
+        return self;
+    };
+}
+
+- (UITextView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode {
+    return ^(UIScrollViewIndexDisplayMode indexDisplayMode) {
+        self.indexDisplayMode = indexDisplayMode;
+        return self;
+    };
+}
+
 #pragma mark public: Superviews
 - (UITextView * (^)(UIView *))aozAddToSuperview {
     return ^(UIView * addToSuperview) {

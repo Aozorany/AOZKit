@@ -6,11 +6,12 @@ def _writeClassFiles(className, classInfoDict):
 def _writeClassInterfaceFile(className, classInfoDict):
     sectionsList = classInfoDict.get("sections")
 
+    alreadyWrittenPropertyNamesSet = set()
     fileName = className + "+AOZCategory.h"
     fileHandle = open(fileName, "w")
     _writeClassInterfaceFileHeader(fileHandle, className)
     for sectionDict in sectionsList:
-        _writeClassInterfaceFileSection(fileHandle, className, sectionDict)
+        _writeClassInterfaceFileSection(fileHandle, className, sectionDict, alreadyWrittenPropertyNamesSet)
     _writeClassInterfaceFileFooter(fileHandle)
     fileHandle.close()
 
@@ -19,15 +20,17 @@ def _writeClassInterfaceFileHeader(fileHandle, className):
     fileHandle.write("#import <UIKit/UIKit.h>\n\n\n")
     fileHandle.write("@interface " + className + " (AOZCategory)\n")
 
-def _writeClassInterfaceFileSection(fileHandle, className, sectionDict):
+def _writeClassInterfaceFileSection(fileHandle, className, sectionDict, alreadyWrittenPropertyNamesSet):
     sectionName = list(sectionDict.keys())[0]
     propertiesDict = sectionDict.get(sectionName)
     fileHandle.write("\n#pragma mark " + sectionName + "\n")
     for propertyName, propertyClassName in propertiesDict.items():
-        separatorIndex = propertyClassName.find("|")
-        if separatorIndex > 0:
-            propertyClassName = propertyClassName[:separatorIndex]
-        fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + _propertyMethodName(propertyName) + ";\n")
+        if propertyName not in alreadyWrittenPropertyNamesSet:
+            separatorIndex = propertyClassName.find("|")
+            if separatorIndex > 0:
+                propertyClassName = propertyClassName[:separatorIndex]
+            fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + _propertyMethodName(propertyName) + ";\n")
+            alreadyWrittenPropertyNamesSet.add(propertyName)
 
 def _writeClassInterfaceFileFooter(fileHandle):
     fileHandle.write("\n@end\n")
@@ -35,11 +38,12 @@ def _writeClassInterfaceFileFooter(fileHandle):
 def _writeClassImplementationFile(className, classInfoDict):
     sectionsList = classInfoDict.get("sections")
 
+    alreadyWrittenPropertyNamesSet = set()
     fileName = className + "+AOZCategory.m"
     fileHandle = open(fileName, "w")
     _writeClassImplementationFileHeader(fileHandle, className)
     for sectionDict in sectionsList:
-        _writeClassImplementationFileSection(fileHandle, className, sectionDict)
+        _writeClassImplementationFileSection(fileHandle, className, sectionDict, alreadyWrittenPropertyNamesSet)
     _writeClassImplementationFileFooter(fileHandle)
     fileHandle.close()
 
@@ -49,23 +53,26 @@ def _writeClassImplementationFileHeader(fileHandle, className):
     fileHandle.write('#pragma mark -\n')
     fileHandle.write('@implementation ' + className + ' (AOZCategory)\n\n')
 
-def _writeClassImplementationFileSection(fileHandle, className, sectionDict):
+def _writeClassImplementationFileSection(fileHandle, className, sectionDict, alreadyWrittenPropertyNamesSet):
     sectionName = list(sectionDict.keys())[0]
     propertiesDict = sectionDict.get(sectionName)
     fileHandle.write("#pragma mark public: " + sectionName + "\n")
     for propertyName, propertyClassName in propertiesDict.items():
-        propertyMethodName = _propertyMethodName(propertyName)
-        separatorIndex = propertyClassName.find("|")
-        methodBody = ""
-        if separatorIndex > 0:
-            methodBody = propertyClassName[separatorIndex + 1:]
-            propertyClassName = propertyClassName[:separatorIndex]
-            methodBody = methodBody.strip()
-        if len(methodBody) > 0:
-            methodBody = methodBody.replace("<##>", propertyName)
-            fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + propertyMethodName + " {\n    return ^(" + propertyClassName + " " + propertyName + ") {\n        " + methodBody + "\n        return self;\n    };\n}\n\n")
-        else:
-            fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + propertyMethodName + " {\n    return ^(" + propertyClassName + " " + propertyName + ") {\n        self." + propertyName + " = " + propertyName + ";\n        return self;\n    };\n}\n\n")
+        if propertyName not in alreadyWrittenPropertyNamesSet:
+            propertyMethodName = _propertyMethodName(propertyName)
+            separatorIndex = propertyClassName.find("|")
+            methodBody = ""
+            if separatorIndex > 0:
+                methodBody = propertyClassName[separatorIndex + 1:]
+                propertyClassName = propertyClassName[:separatorIndex]
+                methodBody = methodBody.strip()
+            if len(methodBody) > 0:
+                methodBody = methodBody.replace("<##>", propertyName)
+                fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + propertyMethodName + " {\n    return ^(" + propertyClassName + " " + propertyName + ") {\n        " + methodBody + "\n        return self;\n    };\n}\n\n")
+            else:
+                fileHandle.write("- (" + className + " * (^)(" + propertyClassName + "))" + propertyMethodName + " {\n    return ^(" + propertyClassName + " " + propertyName + ") {\n        self." + propertyName + " = " + propertyName + ";\n        return self;\n    };\n}\n\n")
+            alreadyWrittenPropertyNamesSet.add(propertyName)
+
 
 def _writeClassImplementationFileFooter(fileHandle):
     fileHandle.write("@end\n")
@@ -73,9 +80,17 @@ def _writeClassImplementationFileFooter(fileHandle):
 def _propertyMethodName(propertyName):
     return "aoz" + propertyName[0].upper() + propertyName[1:]
 
+def _addClassNameToNamesList(className, classNamesList):
+    if className not in classNamesList:
+        classInfoDict = classInfosDict.get(className)
+        if classInfoDict.get("super"):
+            _addClassNameToNamesList(classInfoDict.get("super"), classNamesList)
+            classNamesList.append(className)
+        else:
+            classNamesList.append(className)
+
 # main
-if __name__ == "__main__":
-    classInfosDict = {"UIView":
+classInfosDict = {"UIView":
                        {"sections":
                             [{"Superviews":
                                   {"addToSuperview": "UIView *| [<##> addSubview:self];"}},
@@ -137,7 +152,7 @@ if __name__ == "__main__":
                                       "animationRepeatCount": "NSInteger"}}]
                            },
                     "UITextView":
-                          {"super": "UIView",
+                          {"super": "UIScrollView",
                            "sections":
                                [{"Text Attributes":
                                   {"text": "NSString *",
@@ -209,19 +224,85 @@ if __name__ == "__main__":
                           {"super": "UIView",
                            "sections":
                                [{"Delegate":
-                                     {"delegate": "id<UIScrollViewDelegate>"}}]
+                                     {"delegate": "id<UIScrollViewDelegate>"}},
+                                {"Display of Content":
+                                     {"contentOffset": "CGPoint",
+                                      "contentSize": "CGSize",
+                                      "contentInset": "UIEdgeInsets"}},
+                                {"Managing Scrolling":
+                                     {"scrollEnabled": "BOOL",
+                                      "directionalLockEnabled": "BOOL",
+                                      "scrollsToTop": "BOOL",
+                                      "pagingEnabled": "BOOL",
+                                      "bounces": "BOOL",
+                                      "alwaysBounceVertical": "BOOL",
+                                      "alwaysBounceHorizontal": "BOOL",
+                                      "canCancelContentTouches": "BOOL",
+                                      "delaysContentTouches": "BOOL",
+                                      "decelerationRate": "CGFloat"}},
+                                {"Scroll Indicator ":
+                                     {"indicatorStyle": "UIScrollViewIndicatorStyle",
+                                      "scrollIndicatorInsets": "UIEdgeInsets",
+                                      "showsHorizontalScrollIndicator": "BOOL",
+                                      "showsVerticalScrollIndicator": "BOOL"}},
+                                {"Zooming and Panning":
+                                     {"zoomScale": "CGFloat",
+                                      "maximumZoomScale": "CGFloat",
+                                      "minimumZoomScale": "CGFloat",
+                                      "bouncesZoom": "BOOL"}},
+                                {"Keyboard and Index":
+                                     {"keyboardDismissMode": "UIScrollViewKeyboardDismissMode",
+                                      "indexDisplayMode": "UIScrollViewIndexDisplayMode"}}]
                            },
                     "UITableView":
                           {"super": "UIScrollView",
                            "sections":
-                               [{"Delegates And DataSource":
+                               [{"Delegate And DataSource":
                                      {"delegate": "id<UITableViewDelegate>",
-                                      "dataSource": "id<UITableViewDataSource>"}}]
+                                      "dataSource": "id<UITableViewDataSource>"}},
+                                {"Configuring a Table View":
+                                     {"rowHeight": "CGFloat",
+                                      "separatorStyle": "UITableViewCellSeparatorStyle",
+                                      "separatorColor": "UIColor *",
+                                      "separatorEffect": "UIVisualEffect *",
+                                      "backgroundView": "UIView *",
+                                      "separatorInset": "UIEdgeInsets",
+                                      "cellLayoutMarginsFollowReadableWidth": "BOOL"}},
+                                {"Header and Footer Views":
+                                     {"tableHeaderView": "UIView *",
+                                      "tableFooterView": "UIView *",
+                                      "sectionHeaderHeight": "CGFloat",
+                                      "sectionFooterHeight": "CGFloat"}},
+                                {"Estimating Element Heights":
+                                     {"estimatedRowHeight": "CGFloat",
+                                      "estimatedSectionHeaderHeight": "CGFloat",
+                                      "estimatedSectionFooterHeight": "CGFloat"}},
+                                {"Managing Selections":
+                                     {"allowsSelection": "BOOL",
+                                      "allowsMultipleSelection": "BOOL",
+                                      "allowsSelectionDuringEditing": "BOOL",
+                                      "allowsMultipleSelectionDuringEditing": "BOOL"}},
+                                {"Editing":
+                                     {"editing": "BOOL"}},
+                                {"Table Index":
+                                     {"sectionIndexMinimumDisplayRowCount": "NSInteger",
+                                      "sectionIndexColor": "UIColor *",
+                                      "sectionIndexBackgroundColor": "UIColor *",
+                                      "sectionIndexTrackingBackgroundColor": "UIColor *"}},
+                                {"Managing Focus":
+                                     {"remembersLastFocusedIndexPath": "BOOL"}}]
                            }
                    }
 
-    # expend classeSectionsDict
+if __name__ == "__main__":
+    # get another classNamesList, named rearrangedClassNamesList
+    # make sure that super class names always come before class names
+    rearrangedClassNamesList = list()
     for className in classInfosDict.keys():
+        _addClassNameToNamesList(className, rearrangedClassNamesList)
+
+    # for each class names, add super class properties into it's own properties
+    for className in rearrangedClassNamesList:
         infoDict = classInfosDict.get(className)
         superClassName = infoDict.get("super")
         sectionsList = infoDict.get("sections")
