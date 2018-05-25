@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D5039F361F1CB49200CBD07B /* NSArray+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D5039F341F1CB49200CBD07B /* NSArray+AOZCategory.h */; };
+		D5039F371F1CB49200CBD07B /* NSArray+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5039F351F1CB49200CBD07B /* NSArray+AOZCategory.m */; };
+		D5039F381F1CB49200CBD07B /* NSArray+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D5039F351F1CB49200CBD07B /* NSArray+AOZCategory.m */; };
+		D513873E1F1CB10600A16292 /* NSDictionary+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D513873C1F1CB10600A16292 /* NSDictionary+AOZCategory.h */; };
+		D513873F1F1CB10600A16292 /* NSDictionary+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D513873D1F1CB10600A16292 /* NSDictionary+AOZCategory.m */; };
+		D51387401F1CB10600A16292 /* NSDictionary+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D513873D1F1CB10600A16292 /* NSDictionary+AOZCategory.m */; };
 		D569401F1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D569401B1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h */; };
 		D56940201F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */; };
 		D56940211F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */; };
@@ -42,6 +48,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D5039F341F1CB49200CBD07B /* NSArray+AOZCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+AOZCategory.h"; sourceTree = "<group>"; };
+		D5039F351F1CB49200CBD07B /* NSArray+AOZCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AOZCategory.m"; sourceTree = "<group>"; };
+		D513873C1F1CB10600A16292 /* NSDictionary+AOZCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AOZCategory.h"; sourceTree = "<group>"; };
+		D513873D1F1CB10600A16292 /* NSDictionary+AOZCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+AOZCategory.m"; sourceTree = "<group>"; };
 		D569401B1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+AOZCategory.h"; sourceTree = "<group>"; };
 		D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+AOZCategory.m"; sourceTree = "<group>"; };
 		D569401D1F0F6572005F0ED6 /* UITableView+AOZCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+AOZCategory.h"; sourceTree = "<group>"; };
@@ -137,6 +147,10 @@
 				D569401C1F0F6572005F0ED6 /* UIScrollView+AOZCategory.m */,
 				D569401D1F0F6572005F0ED6 /* UITableView+AOZCategory.h */,
 				D569401E1F0F6572005F0ED6 /* UITableView+AOZCategory.m */,
+				D513873C1F1CB10600A16292 /* NSDictionary+AOZCategory.h */,
+				D513873D1F1CB10600A16292 /* NSDictionary+AOZCategory.m */,
+				D5039F341F1CB49200CBD07B /* NSArray+AOZCategory.h */,
+				D5039F351F1CB49200CBD07B /* NSArray+AOZCategory.m */,
 			);
 			path = AOZKit;
 			sourceTree = "<group>";
@@ -173,6 +187,8 @@
 			files = (
 				D5F8A1311F07803F003F4C13 /* UILabel+AOZCategory.h in Headers */,
 				D569401F1F0F6572005F0ED6 /* UIScrollView+AOZCategory.h in Headers */,
+				D5039F361F1CB49200CBD07B /* NSArray+AOZCategory.h in Headers */,
+				D513873E1F1CB10600A16292 /* NSDictionary+AOZCategory.h in Headers */,
 				D5E0B9FF1F065BE3009EF067 /* UIView+AOZCategory.h in Headers */,
 				D56940221F0F6572005F0ED6 /* UITableView+AOZCategory.h in Headers */,
 				D5CC75C01F0D26F900E85EB2 /* UITextField+AOZCategory.h in Headers */,
@@ -288,7 +304,9 @@
 				D5CC75C11F0D26F900E85EB2 /* UITextField+AOZCategory.m in Sources */,
 				D5E0BA001F065BE3009EF067 /* UIView+AOZCategory.m in Sources */,
 				D56940201F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */,
+				D5039F371F1CB49200CBD07B /* NSArray+AOZCategory.m in Sources */,
 				D5F8A1371F079A1D003F4C13 /* UIImageView+AOZCategory.m in Sources */,
+				D513873F1F1CB10600A16292 /* NSDictionary+AOZCategory.m in Sources */,
 				D5CC75BE1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */,
 				D5F8A1321F07803F003F4C13 /* UILabel+AOZCategory.m in Sources */,
 			);
@@ -299,8 +317,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5F8A1331F07803F003F4C13 /* UILabel+AOZCategory.m in Sources */,
+				D5039F381F1CB49200CBD07B /* NSArray+AOZCategory.m in Sources */,
 				D5F8A1381F079A1D003F4C13 /* UIImageView+AOZCategory.m in Sources */,
 				D56940211F0F6572005F0ED6 /* UIScrollView+AOZCategory.m in Sources */,
+				D51387401F1CB10600A16292 /* NSDictionary+AOZCategory.m in Sources */,
 				D5E0B9EC1F0659BC009EF067 /* ViewController.m in Sources */,
 				D5CC75C51F0D26F900E85EB2 /* UITextView+AOZCategory.m in Sources */,
 				D5CC75BF1F0D26F900E85EB2 /* UIButton+AOZCategory.m in Sources */,

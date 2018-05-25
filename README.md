@@ -11,6 +11,7 @@ Add all h & m files under AOZKit to your project, and inport AOZKit.h, that's al
 * aoz_dispatch_once
 * GM_DEBUG_TIMER
 * UIView chain methods
+* More class-safer NSDictionary and NSArray category
 
 # AOZKit
 一系列在我自己工程里面使用的工具集
@@ -25,3 +26,4 @@ Add all h & m files under AOZKit to your project, and inport AOZKit.h, that's al
 * aoz_dispatch_once：带有一个object和一个block，可以保证在object的生命周期内，block只执行一次；
 * GM_DEBUG_TIMER：用于记录并输出代码段执行时间的宏，只在DEBUG环境下有用；
 * UIView及其子类的链式写法。
+* 更加类型安全的NSDictionary和NSArray扩展。
