@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = "Aozorany"
   s.platform     = :ios
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "9.0"
   s.source       = { :git => "https://github.com/Aozorany/AOZKit.git", :tag => s.version.to_s}
   s.source_files  = "AOZKit/*.{h,m}"
   s.exclude_files = "Classes/Exclude"

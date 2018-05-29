@@ -38,4 +38,57 @@
     return aDefaultValue;
 }
 
+- (NSArray *)aozMap:(id (^)(id element))block {
+    NSArray *anotherArray = [self aozMapMutable:block];
+    return anotherArray? [NSArray arrayWithArray:anotherArray]: nil;
+}
+
+- (NSMutableArray *)aozMapMutable:(id (^)(id element))block {
+    if (block == nil) { return nil; }
+    
+    NSMutableArray *anotherArray = [[NSMutableArray alloc] init];
+    for (id element in self) {
+        id anotherElement = block(element);
+        if (anotherElement) {
+            [anotherArray addObject:anotherElement];
+        }
+    }
+    return anotherArray;
+}
+
+- (void)aozMapVoid:(void (^)(id element))block {
+    if (block == nil) { return; }
+    
+    for (id element in self) {
+        block(element);
+    }
+}
+
+- (NSArray *)aozFilter:(BOOL (^)(id element))block {
+    NSArray *anotherArray = [self aozFilterMutable:block];
+    return anotherArray? [NSArray arrayWithArray:anotherArray]: nil;
+}
+
+- (NSMutableArray *)aozFilterMutable:(BOOL (^)(id element))block {
+    if (block == nil) { return nil; }
+    
+    NSMutableArray *anotherArray = [[NSMutableArray alloc] init];
+    for (id element in self) {
+        if (block(element)) {
+            [anotherArray addObject:element];
+        }
+    }
+    return anotherArray;
+}
+
+- (id)aozReduce:(id (^)(id element, id current))block initializer:(id)initializer {
+    if (block == nil) { return nil; }
+    
+    id currentReduceValue = initializer;
+    for (id element in self) {
+        currentReduceValue = block(element, currentReduceValue);
+    }
+    return currentReduceValue;
+}
+
 @end

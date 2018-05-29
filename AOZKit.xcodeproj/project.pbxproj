@@ -48,6 +48,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		30E6FBEE20BD52DC0035B5C4 /* AOZKit_UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOZKit_UI.h; sourceTree = "<group>"; };
+		30E6FBEF20BD52F30035B5C4 /* AOZKit_NS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AOZKit_NS.h; sourceTree = "<group>"; };
 		D5039F341F1CB49200CBD07B /* NSArray+AOZCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+AOZCategory.h"; sourceTree = "<group>"; };
 		D5039F351F1CB49200CBD07B /* NSArray+AOZCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+AOZCategory.m"; sourceTree = "<group>"; };
 		D513873C1F1CB10600A16292 /* NSDictionary+AOZCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+AOZCategory.h"; sourceTree = "<group>"; };
@@ -129,6 +131,8 @@
 				D5E0B9FC1F065B27009EF067 /* AOZDispatchOnce.h */,
 				D5E0B9FB1F065B27009EF067 /* AOZDispatchOnce.m */,
 				D5E0B9D91F0657C9009EF067 /* AOZKit.h */,
+				30E6FBEE20BD52DC0035B5C4 /* AOZKit_UI.h */,
+				30E6FBEF20BD52F30035B5C4 /* AOZKit_NS.h */,
 				D5F8A12D1F0746A9003F4C13 /* AOZTimeDebugger.h */,
 				D5E0B9DA1F0657C9009EF067 /* Info.plist */,
 				D5E0B9FD1F065BE3009EF067 /* UIView+AOZCategory.h */,

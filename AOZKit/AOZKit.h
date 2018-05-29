@@ -14,14 +14,5 @@ FOUNDATION_EXPORT double AOZKitVersionNumber;
 //! Project version string for AOZKit.
 FOUNDATION_EXPORT const unsigned char AOZKitVersionString[];
 
-#import "AOZDispatchOnce.h"
-#import "AOZTimeDebugger.h"
-
-#import "UIView+AOZCategory.h"
-#import "UIImageView+AOZCategory.h"
-#import "UILabel+AOZCategory.h"
-#import "UITextField+AOZCategory.h"
-#import "UITextView+AOZCategory.h"
-#import "UIButton+AOZCategory.h"
-#import "UIScrollView+AOZCategory.h"
-#import "UITableView+AOZCategory.h"
+#import "AOZKit_NS.h"
+#import "AOZKit_UI.h"
