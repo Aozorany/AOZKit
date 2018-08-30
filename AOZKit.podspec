@@ -1,7 +1,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "AOZKit"
-  s.version      = '0.2'
+  s.version      = '0.3'
   s.summary      = "AOZKit contains some code I like to use"
   s.description  = <<-DESC
                    AOZKit contains some code I like to use.
