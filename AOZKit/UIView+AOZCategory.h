@@ -15,29 +15,29 @@
 - (UIView * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UIView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIView * (^)(UIColor *))aozLayerBorderColor;
+- (UIView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIView * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UIView * (^)(CGRect))aozFrame;
+- (UIView * (^)(CGAffineTransform))aozTransform;
 - (UIView * (^)(CGRect))aozBounds;
 - (UIView * (^)(CGPoint))aozCenter;
-- (UIView * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UIView * (^)(UIColor *))aozBackgroundColor;
-- (UIView * (^)(BOOL))aozHidden;
-- (UIView * (^)(CGFloat))aozAlpha;
+- (UIView * (^)(BOOL))aozClipsToBounds;
 - (UIView * (^)(BOOL))aozOpaque;
 - (UIView * (^)(UIColor *))aozTintColor;
 - (UIView * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UIView * (^)(BOOL))aozClipsToBounds;
+- (UIView * (^)(UIColor *))aozBackgroundColor;
+- (UIView * (^)(CGFloat))aozAlpha;
+- (UIView * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UIView * (^)(BOOL))aozUserInteractionEnabled;
-- (UIView * (^)(BOOL))aozMultipleTouchEnabled;
 - (UIView * (^)(BOOL))aozExclusiveTouch;
+- (UIView * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UIView * (^)(UIViewContentMode))aozContentMode;

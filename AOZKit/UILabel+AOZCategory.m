@@ -13,6 +13,20 @@
 @implementation UILabel (AOZCategory)
 
 #pragma mark public: Text Attributes
+- (UILabel * (^)(UIColor *))aozTextColor {
+    return ^(UIColor * textColor) {
+        self.textColor = textColor;
+        return self;
+    };
+}
+
+- (UILabel * (^)(NSLineBreakMode))aozLineBreakMode {
+    return ^(NSLineBreakMode lineBreakMode) {
+        self.lineBreakMode = lineBreakMode;
+        return self;
+    };
+}
+
 - (UILabel * (^)(NSString *))aozText {
     return ^(NSString * text) {
         self.text = text;
@@ -34,23 +48,9 @@
     };
 }
 
-- (UILabel * (^)(UIColor *))aozTextColor {
-    return ^(UIColor * textColor) {
-        self.textColor = textColor;
-        return self;
-    };
-}
-
 - (UILabel * (^)(NSTextAlignment))aozTextAlignment {
     return ^(NSTextAlignment textAlignment) {
         self.textAlignment = textAlignment;
-        return self;
-    };
-}
-
-- (UILabel * (^)(NSLineBreakMode))aozLineBreakMode {
-    return ^(NSLineBreakMode lineBreakMode) {
-        self.lineBreakMode = lineBreakMode;
         return self;
     };
 }
@@ -64,13 +64,6 @@
 }
 
 #pragma mark public: Highlight Values
-- (UILabel * (^)(UIColor *))aozHighlightedTextColor {
-    return ^(UIColor * highlightedTextColor) {
-        self.highlightedTextColor = highlightedTextColor;
-        return self;
-    };
-}
-
 - (UILabel * (^)(BOOL))aozHighlighted {
     return ^(BOOL highlighted) {
         self.highlighted = highlighted;
@@ -78,17 +71,24 @@
     };
 }
 
-#pragma mark public: Drawing a Shadow
-- (UILabel * (^)(UIColor *))aozShadowColor {
-    return ^(UIColor * shadowColor) {
-        self.shadowColor = shadowColor;
+- (UILabel * (^)(UIColor *))aozHighlightedTextColor {
+    return ^(UIColor * highlightedTextColor) {
+        self.highlightedTextColor = highlightedTextColor;
         return self;
     };
 }
 
+#pragma mark public: Drawing a Shadow
 - (UILabel * (^)(CGSize))aozShadowOffset {
     return ^(CGSize shadowOffset) {
         self.shadowOffset = shadowOffset;
+        return self;
+    };
+}
+
+- (UILabel * (^)(UIColor *))aozShadowColor {
+    return ^(UIColor * shadowColor) {
+        self.shadowColor = shadowColor;
         return self;
     };
 }
@@ -102,16 +102,16 @@
 }
 
 #pragma mark public: Layers
-- (UILabel * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UILabel * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UILabel * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UILabel * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -131,6 +131,13 @@
     };
 }
 
+- (UILabel * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UILabel * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -145,31 +152,10 @@
     };
 }
 
-- (UILabel * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UILabel * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UILabel * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UILabel * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UILabel * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -195,9 +181,23 @@
     };
 }
 
-- (UILabel * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UILabel * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UILabel * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UILabel * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -210,16 +210,16 @@
     };
 }
 
-- (UILabel * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UILabel * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UILabel * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UILabel * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

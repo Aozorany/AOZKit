@@ -13,16 +13,16 @@
 @implementation UIButton (AOZCategory)
 
 #pragma mark public: Edge Insets
-- (UIButton * (^)(UIEdgeInsets))aozContentEdgeInsets {
-    return ^(UIEdgeInsets contentEdgeInsets) {
-        self.contentEdgeInsets = contentEdgeInsets;
+- (UIButton * (^)(UIEdgeInsets))aozTitleEdgeInsets {
+    return ^(UIEdgeInsets titleEdgeInsets) {
+        self.titleEdgeInsets = titleEdgeInsets;
         return self;
     };
 }
 
-- (UIButton * (^)(UIEdgeInsets))aozTitleEdgeInsets {
-    return ^(UIEdgeInsets titleEdgeInsets) {
-        self.titleEdgeInsets = titleEdgeInsets;
+- (UIButton * (^)(UIEdgeInsets))aozContentEdgeInsets {
+    return ^(UIEdgeInsets contentEdgeInsets) {
+        self.contentEdgeInsets = contentEdgeInsets;
         return self;
     };
 }
@@ -43,16 +43,16 @@
 }
 
 #pragma mark public: Layers
-- (UIButton * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UIButton * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UIButton * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UIButton * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -72,6 +72,13 @@
     };
 }
 
+- (UIButton * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UIButton * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -86,31 +93,10 @@
     };
 }
 
-- (UIButton * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UIButton * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UIButton * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UIButton * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UIButton * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -136,9 +122,23 @@
     };
 }
 
-- (UIButton * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UIButton * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UIButton * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UIButton * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -151,16 +151,16 @@
     };
 }
 
-- (UIButton * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UIButton * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UIButton * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UIButton * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

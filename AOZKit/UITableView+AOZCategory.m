@@ -28,34 +28,6 @@
 }
 
 #pragma mark public: Configuring a Table View
-- (UITableView * (^)(CGFloat))aozRowHeight {
-    return ^(CGFloat rowHeight) {
-        self.rowHeight = rowHeight;
-        return self;
-    };
-}
-
-- (UITableView * (^)(UITableViewCellSeparatorStyle))aozSeparatorStyle {
-    return ^(UITableViewCellSeparatorStyle separatorStyle) {
-        self.separatorStyle = separatorStyle;
-        return self;
-    };
-}
-
-- (UITableView * (^)(UIColor *))aozSeparatorColor {
-    return ^(UIColor * separatorColor) {
-        self.separatorColor = separatorColor;
-        return self;
-    };
-}
-
-- (UITableView * (^)(UIVisualEffect *))aozSeparatorEffect {
-    return ^(UIVisualEffect * separatorEffect) {
-        self.separatorEffect = separatorEffect;
-        return self;
-    };
-}
-
 - (UITableView * (^)(UIView *))aozBackgroundView {
     return ^(UIView * backgroundView) {
         self.backgroundView = backgroundView;
@@ -70,6 +42,13 @@
     };
 }
 
+- (UITableView * (^)(CGFloat))aozRowHeight {
+    return ^(CGFloat rowHeight) {
+        self.rowHeight = rowHeight;
+        return self;
+    };
+}
+
 - (UITableView * (^)(BOOL))aozCellLayoutMarginsFollowReadableWidth {
     return ^(BOOL cellLayoutMarginsFollowReadableWidth) {
         self.cellLayoutMarginsFollowReadableWidth = cellLayoutMarginsFollowReadableWidth;
@@ -77,17 +56,38 @@
     };
 }
 
-#pragma mark public: Header and Footer Views
-- (UITableView * (^)(UIView *))aozTableHeaderView {
-    return ^(UIView * tableHeaderView) {
-        self.tableHeaderView = tableHeaderView;
+- (UITableView * (^)(UIColor *))aozSeparatorColor {
+    return ^(UIColor * separatorColor) {
+        self.separatorColor = separatorColor;
         return self;
     };
 }
 
+- (UITableView * (^)(UITableViewCellSeparatorStyle))aozSeparatorStyle {
+    return ^(UITableViewCellSeparatorStyle separatorStyle) {
+        self.separatorStyle = separatorStyle;
+        return self;
+    };
+}
+
+- (UITableView * (^)(UIVisualEffect *))aozSeparatorEffect {
+    return ^(UIVisualEffect * separatorEffect) {
+        self.separatorEffect = separatorEffect;
+        return self;
+    };
+}
+
+#pragma mark public: Header and Footer Views
 - (UITableView * (^)(UIView *))aozTableFooterView {
     return ^(UIView * tableFooterView) {
         self.tableFooterView = tableFooterView;
+        return self;
+    };
+}
+
+- (UITableView * (^)(UIView *))aozTableHeaderView {
+    return ^(UIView * tableHeaderView) {
+        self.tableHeaderView = tableHeaderView;
         return self;
     };
 }
@@ -114,13 +114,6 @@
     };
 }
 
-- (UITableView * (^)(CGFloat))aozEstimatedSectionHeaderHeight {
-    return ^(CGFloat estimatedSectionHeaderHeight) {
-        self.estimatedSectionHeaderHeight = estimatedSectionHeaderHeight;
-        return self;
-    };
-}
-
 - (UITableView * (^)(CGFloat))aozEstimatedSectionFooterHeight {
     return ^(CGFloat estimatedSectionFooterHeight) {
         self.estimatedSectionFooterHeight = estimatedSectionFooterHeight;
@@ -128,10 +121,17 @@
     };
 }
 
+- (UITableView * (^)(CGFloat))aozEstimatedSectionHeaderHeight {
+    return ^(CGFloat estimatedSectionHeaderHeight) {
+        self.estimatedSectionHeaderHeight = estimatedSectionHeaderHeight;
+        return self;
+    };
+}
+
 #pragma mark public: Managing Selections
-- (UITableView * (^)(BOOL))aozAllowsSelection {
-    return ^(BOOL allowsSelection) {
-        self.allowsSelection = allowsSelection;
+- (UITableView * (^)(BOOL))aozAllowsSelectionDuringEditing {
+    return ^(BOOL allowsSelectionDuringEditing) {
+        self.allowsSelectionDuringEditing = allowsSelectionDuringEditing;
         return self;
     };
 }
@@ -143,16 +143,16 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozAllowsSelectionDuringEditing {
-    return ^(BOOL allowsSelectionDuringEditing) {
-        self.allowsSelectionDuringEditing = allowsSelectionDuringEditing;
+- (UITableView * (^)(BOOL))aozAllowsMultipleSelectionDuringEditing {
+    return ^(BOOL allowsMultipleSelectionDuringEditing) {
+        self.allowsMultipleSelectionDuringEditing = allowsMultipleSelectionDuringEditing;
         return self;
     };
 }
 
-- (UITableView * (^)(BOOL))aozAllowsMultipleSelectionDuringEditing {
-    return ^(BOOL allowsMultipleSelectionDuringEditing) {
-        self.allowsMultipleSelectionDuringEditing = allowsMultipleSelectionDuringEditing;
+- (UITableView * (^)(BOOL))aozAllowsSelection {
+    return ^(BOOL allowsSelection) {
+        self.allowsSelection = allowsSelection;
         return self;
     };
 }
@@ -166,13 +166,6 @@
 }
 
 #pragma mark public: Table Index
-- (UITableView * (^)(NSInteger))aozSectionIndexMinimumDisplayRowCount {
-    return ^(NSInteger sectionIndexMinimumDisplayRowCount) {
-        self.sectionIndexMinimumDisplayRowCount = sectionIndexMinimumDisplayRowCount;
-        return self;
-    };
-}
-
 - (UITableView * (^)(UIColor *))aozSectionIndexColor {
     return ^(UIColor * sectionIndexColor) {
         self.sectionIndexColor = sectionIndexColor;
@@ -194,6 +187,13 @@
     };
 }
 
+- (UITableView * (^)(NSInteger))aozSectionIndexMinimumDisplayRowCount {
+    return ^(NSInteger sectionIndexMinimumDisplayRowCount) {
+        self.sectionIndexMinimumDisplayRowCount = sectionIndexMinimumDisplayRowCount;
+        return self;
+    };
+}
+
 #pragma mark public: Managing Focus
 - (UITableView * (^)(BOOL))aozRemembersLastFocusedIndexPath {
     return ^(BOOL remembersLastFocusedIndexPath) {
@@ -211,13 +211,6 @@
     };
 }
 
-- (UITableView * (^)(CGSize))aozContentSize {
-    return ^(CGSize contentSize) {
-        self.contentSize = contentSize;
-        return self;
-    };
-}
-
 - (UITableView * (^)(UIEdgeInsets))aozContentInset {
     return ^(UIEdgeInsets contentInset) {
         self.contentInset = contentInset;
@@ -225,10 +218,45 @@
     };
 }
 
+- (UITableView * (^)(CGSize))aozContentSize {
+    return ^(CGSize contentSize) {
+        self.contentSize = contentSize;
+        return self;
+    };
+}
+
 #pragma mark public: Managing Scrolling
+- (UITableView * (^)(CGFloat))aozDecelerationRate {
+    return ^(CGFloat decelerationRate) {
+        self.decelerationRate = decelerationRate;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozPagingEnabled {
+    return ^(BOOL pagingEnabled) {
+        self.pagingEnabled = pagingEnabled;
+        return self;
+    };
+}
+
 - (UITableView * (^)(BOOL))aozScrollEnabled {
     return ^(BOOL scrollEnabled) {
         self.scrollEnabled = scrollEnabled;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozDelaysContentTouches {
+    return ^(BOOL delaysContentTouches) {
+        self.delaysContentTouches = delaysContentTouches;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozAlwaysBounceHorizontal {
+    return ^(BOOL alwaysBounceHorizontal) {
+        self.alwaysBounceHorizontal = alwaysBounceHorizontal;
         return self;
     };
 }
@@ -247,9 +275,9 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozPagingEnabled {
-    return ^(BOOL pagingEnabled) {
-        self.pagingEnabled = pagingEnabled;
+- (UITableView * (^)(BOOL))aozCanCancelContentTouches {
+    return ^(BOOL canCancelContentTouches) {
+        self.canCancelContentTouches = canCancelContentTouches;
         return self;
     };
 }
@@ -268,38 +296,17 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozAlwaysBounceHorizontal {
-    return ^(BOOL alwaysBounceHorizontal) {
-        self.alwaysBounceHorizontal = alwaysBounceHorizontal;
-        return self;
-    };
-}
-
-- (UITableView * (^)(BOOL))aozCanCancelContentTouches {
-    return ^(BOOL canCancelContentTouches) {
-        self.canCancelContentTouches = canCancelContentTouches;
-        return self;
-    };
-}
-
-- (UITableView * (^)(BOOL))aozDelaysContentTouches {
-    return ^(BOOL delaysContentTouches) {
-        self.delaysContentTouches = delaysContentTouches;
-        return self;
-    };
-}
-
-- (UITableView * (^)(CGFloat))aozDecelerationRate {
-    return ^(CGFloat decelerationRate) {
-        self.decelerationRate = decelerationRate;
-        return self;
-    };
-}
-
 #pragma mark public: Scroll Indicator 
 - (UITableView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle {
     return ^(UIScrollViewIndicatorStyle indicatorStyle) {
         self.indicatorStyle = indicatorStyle;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozShowsVerticalScrollIndicator {
+    return ^(BOOL showsVerticalScrollIndicator) {
+        self.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
         return self;
     };
 }
@@ -318,17 +325,17 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozShowsVerticalScrollIndicator {
-    return ^(BOOL showsVerticalScrollIndicator) {
-        self.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
-        return self;
-    };
-}
-
 #pragma mark public: Zooming and Panning
 - (UITableView * (^)(CGFloat))aozZoomScale {
     return ^(CGFloat zoomScale) {
         self.zoomScale = zoomScale;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozBouncesZoom {
+    return ^(BOOL bouncesZoom) {
+        self.bouncesZoom = bouncesZoom;
         return self;
     };
 }
@@ -347,24 +354,17 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozBouncesZoom {
-    return ^(BOOL bouncesZoom) {
-        self.bouncesZoom = bouncesZoom;
-        return self;
-    };
-}
-
 #pragma mark public: Keyboard and Index
-- (UITableView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode {
-    return ^(UIScrollViewKeyboardDismissMode keyboardDismissMode) {
-        self.keyboardDismissMode = keyboardDismissMode;
-        return self;
-    };
-}
-
 - (UITableView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode {
     return ^(UIScrollViewIndexDisplayMode indexDisplayMode) {
         self.indexDisplayMode = indexDisplayMode;
+        return self;
+    };
+}
+
+- (UITableView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode {
+    return ^(UIScrollViewKeyboardDismissMode keyboardDismissMode) {
+        self.keyboardDismissMode = keyboardDismissMode;
         return self;
     };
 }
@@ -378,16 +378,16 @@
 }
 
 #pragma mark public: Layers
-- (UITableView * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UITableView * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UITableView * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UITableView * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -407,6 +407,13 @@
     };
 }
 
+- (UITableView * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UITableView * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -421,31 +428,10 @@
     };
 }
 
-- (UITableView * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UITableView * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UITableView * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UITableView * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UITableView * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -471,9 +457,23 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UITableView * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UITableView * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UITableView * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -486,16 +486,16 @@
     };
 }
 
-- (UITableView * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UITableView * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UITableView * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UITableView * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

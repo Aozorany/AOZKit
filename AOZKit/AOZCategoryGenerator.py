@@ -188,7 +188,9 @@ classInfosDict = {"UIView":
                                    "font": "UIFont *",
                                    "textColor": "UIColor *",
                                    "textAlignment": "NSTextAlignment",
-                                   "typingAttributes": "NSDictionary<NSString *,id> *"}},
+                                   "typingAttributes": "NSDictionary<NSString *,id> *",
+                                   "secureTextEntry": "BOOL",
+                                   "returnKeyType": "UIReturnKeyType"}},
                                 {"Sizing":
                                      {"adjustsFontSizeToFitWidth": "BOOL",
                                       "minimumFontSize": "CGFloat"}},

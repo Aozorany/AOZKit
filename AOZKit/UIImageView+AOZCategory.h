@@ -16,38 +16,38 @@
 - (UIImageView * (^)(UIImage *))aozHighlightedImage;
 
 #pragma mark Animate Images
-- (UIImageView * (^)(NSArray<UIImage *> *))aozAnimationImages;
+- (UIImageView * (^)(NSInteger))aozAnimationRepeatCount;
 - (UIImageView * (^)(NSArray<UIImage *> *))aozHighlightedAnimationImages;
 - (UIImageView * (^)(CGFloat))aozAnimationDuration;
-- (UIImageView * (^)(NSInteger))aozAnimationRepeatCount;
+- (UIImageView * (^)(NSArray<UIImage *> *))aozAnimationImages;
 
 #pragma mark Superviews
 - (UIImageView * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UIImageView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIImageView * (^)(UIColor *))aozLayerBorderColor;
+- (UIImageView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIImageView * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UIImageView * (^)(CGRect))aozFrame;
+- (UIImageView * (^)(CGAffineTransform))aozTransform;
 - (UIImageView * (^)(CGRect))aozBounds;
 - (UIImageView * (^)(CGPoint))aozCenter;
-- (UIImageView * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UIImageView * (^)(UIColor *))aozBackgroundColor;
-- (UIImageView * (^)(BOOL))aozHidden;
-- (UIImageView * (^)(CGFloat))aozAlpha;
+- (UIImageView * (^)(BOOL))aozClipsToBounds;
 - (UIImageView * (^)(BOOL))aozOpaque;
 - (UIImageView * (^)(UIColor *))aozTintColor;
 - (UIImageView * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UIImageView * (^)(BOOL))aozClipsToBounds;
+- (UIImageView * (^)(UIColor *))aozBackgroundColor;
+- (UIImageView * (^)(CGFloat))aozAlpha;
+- (UIImageView * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UIImageView * (^)(BOOL))aozUserInteractionEnabled;
-- (UIImageView * (^)(BOOL))aozMultipleTouchEnabled;
 - (UIImageView * (^)(BOOL))aozExclusiveTouch;
+- (UIImageView * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UIImageView * (^)(UIViewContentMode))aozContentMode;

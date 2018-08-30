@@ -16,39 +16,39 @@
 - (UITableView * (^)(id<UITableViewDataSource>))aozDataSource;
 
 #pragma mark Configuring a Table View
-- (UITableView * (^)(CGFloat))aozRowHeight;
-- (UITableView * (^)(UITableViewCellSeparatorStyle))aozSeparatorStyle;
-- (UITableView * (^)(UIColor *))aozSeparatorColor;
-- (UITableView * (^)(UIVisualEffect *))aozSeparatorEffect;
 - (UITableView * (^)(UIView *))aozBackgroundView;
 - (UITableView * (^)(UIEdgeInsets))aozSeparatorInset;
+- (UITableView * (^)(CGFloat))aozRowHeight;
 - (UITableView * (^)(BOOL))aozCellLayoutMarginsFollowReadableWidth;
+- (UITableView * (^)(UIColor *))aozSeparatorColor;
+- (UITableView * (^)(UITableViewCellSeparatorStyle))aozSeparatorStyle;
+- (UITableView * (^)(UIVisualEffect *))aozSeparatorEffect;
 
 #pragma mark Header and Footer Views
-- (UITableView * (^)(UIView *))aozTableHeaderView;
 - (UITableView * (^)(UIView *))aozTableFooterView;
+- (UITableView * (^)(UIView *))aozTableHeaderView;
 - (UITableView * (^)(CGFloat))aozSectionHeaderHeight;
 - (UITableView * (^)(CGFloat))aozSectionFooterHeight;
 
 #pragma mark Estimating Element Heights
 - (UITableView * (^)(CGFloat))aozEstimatedRowHeight;
-- (UITableView * (^)(CGFloat))aozEstimatedSectionHeaderHeight;
 - (UITableView * (^)(CGFloat))aozEstimatedSectionFooterHeight;
+- (UITableView * (^)(CGFloat))aozEstimatedSectionHeaderHeight;
 
 #pragma mark Managing Selections
-- (UITableView * (^)(BOOL))aozAllowsSelection;
-- (UITableView * (^)(BOOL))aozAllowsMultipleSelection;
 - (UITableView * (^)(BOOL))aozAllowsSelectionDuringEditing;
+- (UITableView * (^)(BOOL))aozAllowsMultipleSelection;
 - (UITableView * (^)(BOOL))aozAllowsMultipleSelectionDuringEditing;
+- (UITableView * (^)(BOOL))aozAllowsSelection;
 
 #pragma mark Editing
 - (UITableView * (^)(BOOL))aozEditing;
 
 #pragma mark Table Index
-- (UITableView * (^)(NSInteger))aozSectionIndexMinimumDisplayRowCount;
 - (UITableView * (^)(UIColor *))aozSectionIndexColor;
 - (UITableView * (^)(UIColor *))aozSectionIndexBackgroundColor;
 - (UITableView * (^)(UIColor *))aozSectionIndexTrackingBackgroundColor;
+- (UITableView * (^)(NSInteger))aozSectionIndexMinimumDisplayRowCount;
 
 #pragma mark Managing Focus
 - (UITableView * (^)(BOOL))aozRemembersLastFocusedIndexPath;
@@ -57,64 +57,64 @@
 
 #pragma mark Display of Content
 - (UITableView * (^)(CGPoint))aozContentOffset;
-- (UITableView * (^)(CGSize))aozContentSize;
 - (UITableView * (^)(UIEdgeInsets))aozContentInset;
+- (UITableView * (^)(CGSize))aozContentSize;
 
 #pragma mark Managing Scrolling
+- (UITableView * (^)(CGFloat))aozDecelerationRate;
+- (UITableView * (^)(BOOL))aozPagingEnabled;
 - (UITableView * (^)(BOOL))aozScrollEnabled;
+- (UITableView * (^)(BOOL))aozDelaysContentTouches;
+- (UITableView * (^)(BOOL))aozAlwaysBounceHorizontal;
 - (UITableView * (^)(BOOL))aozDirectionalLockEnabled;
 - (UITableView * (^)(BOOL))aozScrollsToTop;
-- (UITableView * (^)(BOOL))aozPagingEnabled;
+- (UITableView * (^)(BOOL))aozCanCancelContentTouches;
 - (UITableView * (^)(BOOL))aozBounces;
 - (UITableView * (^)(BOOL))aozAlwaysBounceVertical;
-- (UITableView * (^)(BOOL))aozAlwaysBounceHorizontal;
-- (UITableView * (^)(BOOL))aozCanCancelContentTouches;
-- (UITableView * (^)(BOOL))aozDelaysContentTouches;
-- (UITableView * (^)(CGFloat))aozDecelerationRate;
 
 #pragma mark Scroll Indicator 
 - (UITableView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle;
+- (UITableView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 - (UITableView * (^)(UIEdgeInsets))aozScrollIndicatorInsets;
 - (UITableView * (^)(BOOL))aozShowsHorizontalScrollIndicator;
-- (UITableView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 
 #pragma mark Zooming and Panning
 - (UITableView * (^)(CGFloat))aozZoomScale;
+- (UITableView * (^)(BOOL))aozBouncesZoom;
 - (UITableView * (^)(CGFloat))aozMaximumZoomScale;
 - (UITableView * (^)(CGFloat))aozMinimumZoomScale;
-- (UITableView * (^)(BOOL))aozBouncesZoom;
 
 #pragma mark Keyboard and Index
-- (UITableView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 - (UITableView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode;
+- (UITableView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 
 #pragma mark Superviews
 - (UITableView * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UITableView * (^)(CGFloat))aozLayerBorderWidth;
 - (UITableView * (^)(UIColor *))aozLayerBorderColor;
+- (UITableView * (^)(CGFloat))aozLayerBorderWidth;
 - (UITableView * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UITableView * (^)(CGRect))aozFrame;
+- (UITableView * (^)(CGAffineTransform))aozTransform;
 - (UITableView * (^)(CGRect))aozBounds;
 - (UITableView * (^)(CGPoint))aozCenter;
-- (UITableView * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UITableView * (^)(UIColor *))aozBackgroundColor;
-- (UITableView * (^)(BOOL))aozHidden;
-- (UITableView * (^)(CGFloat))aozAlpha;
+- (UITableView * (^)(BOOL))aozClipsToBounds;
 - (UITableView * (^)(BOOL))aozOpaque;
 - (UITableView * (^)(UIColor *))aozTintColor;
 - (UITableView * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UITableView * (^)(BOOL))aozClipsToBounds;
+- (UITableView * (^)(UIColor *))aozBackgroundColor;
+- (UITableView * (^)(CGFloat))aozAlpha;
+- (UITableView * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UITableView * (^)(BOOL))aozUserInteractionEnabled;
-- (UITableView * (^)(BOOL))aozMultipleTouchEnabled;
 - (UITableView * (^)(BOOL))aozExclusiveTouch;
+- (UITableView * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UITableView * (^)(UIViewContentMode))aozContentMode;

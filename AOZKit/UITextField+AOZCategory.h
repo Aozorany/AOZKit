@@ -12,15 +12,17 @@
 @interface UITextField (AOZCategory)
 
 #pragma mark Text Attributes
-- (UITextField * (^)(NSString *))aozText;
-- (UITextField * (^)(NSAttributedString *))aozAttributedText;
-- (UITextField * (^)(NSString *))aozPlaceholder;
 - (UITextField * (^)(NSAttributedString *))aozAttributedPlaceholder;
-- (UITextField * (^)(NSDictionary<NSString *,id> *))aozDefaultTextAttributes;
+- (UITextField * (^)(BOOL))aozSecureTextEntry;
+- (UITextField * (^)(UIReturnKeyType))aozReturnKeyType;
 - (UITextField * (^)(UIFont *))aozFont;
+- (UITextField * (^)(NSString *))aozPlaceholder;
+- (UITextField * (^)(NSAttributedString *))aozAttributedText;
+- (UITextField * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes;
+- (UITextField * (^)(NSDictionary<NSString *,id> *))aozDefaultTextAttributes;
+- (UITextField * (^)(NSString *))aozText;
 - (UITextField * (^)(UIColor *))aozTextColor;
 - (UITextField * (^)(NSTextAlignment))aozTextAlignment;
-- (UITextField * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes;
 
 #pragma mark Sizing
 - (UITextField * (^)(BOOL))aozAdjustsFontSizeToFitWidth;
@@ -33,14 +35,14 @@
 
 #pragma mark Background Appearance
 - (UITextField * (^)(UITextBorderStyle))aozBorderStyle;
-- (UITextField * (^)(UIImage *))aozBackground;
 - (UITextField * (^)(UIImage *))aozDisabledBackground;
+- (UITextField * (^)(UIImage *))aozBackground;
 
 #pragma mark Overlay Views
-- (UITextField * (^)(UITextFieldViewMode))aozClearButtonMode;
-- (UITextField * (^)(UIView *))aozLeftView;
-- (UITextField * (^)(UITextFieldViewMode))aozLeftViewMode;
 - (UITextField * (^)(UIView *))aozRightView;
+- (UITextField * (^)(UITextFieldViewMode))aozLeftViewMode;
+- (UITextField * (^)(UIView *))aozLeftView;
+- (UITextField * (^)(UITextFieldViewMode))aozClearButtonMode;
 - (UITextField * (^)(UITextFieldViewMode))aozRightViewMode;
 
 #pragma mark Delegate
@@ -54,29 +56,29 @@
 - (UITextField * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UITextField * (^)(CGFloat))aozLayerBorderWidth;
 - (UITextField * (^)(UIColor *))aozLayerBorderColor;
+- (UITextField * (^)(CGFloat))aozLayerBorderWidth;
 - (UITextField * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UITextField * (^)(CGRect))aozFrame;
+- (UITextField * (^)(CGAffineTransform))aozTransform;
 - (UITextField * (^)(CGRect))aozBounds;
 - (UITextField * (^)(CGPoint))aozCenter;
-- (UITextField * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UITextField * (^)(UIColor *))aozBackgroundColor;
-- (UITextField * (^)(BOOL))aozHidden;
-- (UITextField * (^)(CGFloat))aozAlpha;
+- (UITextField * (^)(BOOL))aozClipsToBounds;
 - (UITextField * (^)(BOOL))aozOpaque;
 - (UITextField * (^)(UIColor *))aozTintColor;
 - (UITextField * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UITextField * (^)(BOOL))aozClipsToBounds;
+- (UITextField * (^)(UIColor *))aozBackgroundColor;
+- (UITextField * (^)(CGFloat))aozAlpha;
+- (UITextField * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UITextField * (^)(BOOL))aozUserInteractionEnabled;
-- (UITextField * (^)(BOOL))aozMultipleTouchEnabled;
 - (UITextField * (^)(BOOL))aozExclusiveTouch;
+- (UITextField * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UITextField * (^)(UIViewContentMode))aozContentMode;

@@ -12,51 +12,51 @@
 @interface UILabel (AOZCategory)
 
 #pragma mark Text Attributes
+- (UILabel * (^)(UIColor *))aozTextColor;
+- (UILabel * (^)(NSLineBreakMode))aozLineBreakMode;
 - (UILabel * (^)(NSString *))aozText;
 - (UILabel * (^)(NSAttributedString *))aozAttributedText;
 - (UILabel * (^)(UIFont *))aozFont;
-- (UILabel * (^)(UIColor *))aozTextColor;
 - (UILabel * (^)(NSTextAlignment))aozTextAlignment;
-- (UILabel * (^)(NSLineBreakMode))aozLineBreakMode;
 
 #pragma mark Sizing the Label Text
 - (UILabel * (^)(NSInteger))aozNumberOfLines;
 
 #pragma mark Highlight Values
-- (UILabel * (^)(UIColor *))aozHighlightedTextColor;
 - (UILabel * (^)(BOOL))aozHighlighted;
+- (UILabel * (^)(UIColor *))aozHighlightedTextColor;
 
 #pragma mark Drawing a Shadow
-- (UILabel * (^)(UIColor *))aozShadowColor;
 - (UILabel * (^)(CGSize))aozShadowOffset;
+- (UILabel * (^)(UIColor *))aozShadowColor;
 
 #pragma mark Superviews
 - (UILabel * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UILabel * (^)(CGFloat))aozLayerBorderWidth;
 - (UILabel * (^)(UIColor *))aozLayerBorderColor;
+- (UILabel * (^)(CGFloat))aozLayerBorderWidth;
 - (UILabel * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UILabel * (^)(CGRect))aozFrame;
+- (UILabel * (^)(CGAffineTransform))aozTransform;
 - (UILabel * (^)(CGRect))aozBounds;
 - (UILabel * (^)(CGPoint))aozCenter;
-- (UILabel * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UILabel * (^)(UIColor *))aozBackgroundColor;
-- (UILabel * (^)(BOOL))aozHidden;
-- (UILabel * (^)(CGFloat))aozAlpha;
+- (UILabel * (^)(BOOL))aozClipsToBounds;
 - (UILabel * (^)(BOOL))aozOpaque;
 - (UILabel * (^)(UIColor *))aozTintColor;
 - (UILabel * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UILabel * (^)(BOOL))aozClipsToBounds;
+- (UILabel * (^)(UIColor *))aozBackgroundColor;
+- (UILabel * (^)(CGFloat))aozAlpha;
+- (UILabel * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UILabel * (^)(BOOL))aozUserInteractionEnabled;
-- (UILabel * (^)(BOOL))aozMultipleTouchEnabled;
 - (UILabel * (^)(BOOL))aozExclusiveTouch;
+- (UILabel * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UILabel * (^)(UIViewContentMode))aozContentMode;

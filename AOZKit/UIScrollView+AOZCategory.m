@@ -28,13 +28,6 @@
     };
 }
 
-- (UIScrollView * (^)(CGSize))aozContentSize {
-    return ^(CGSize contentSize) {
-        self.contentSize = contentSize;
-        return self;
-    };
-}
-
 - (UIScrollView * (^)(UIEdgeInsets))aozContentInset {
     return ^(UIEdgeInsets contentInset) {
         self.contentInset = contentInset;
@@ -42,10 +35,45 @@
     };
 }
 
+- (UIScrollView * (^)(CGSize))aozContentSize {
+    return ^(CGSize contentSize) {
+        self.contentSize = contentSize;
+        return self;
+    };
+}
+
 #pragma mark public: Managing Scrolling
+- (UIScrollView * (^)(CGFloat))aozDecelerationRate {
+    return ^(CGFloat decelerationRate) {
+        self.decelerationRate = decelerationRate;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozPagingEnabled {
+    return ^(BOOL pagingEnabled) {
+        self.pagingEnabled = pagingEnabled;
+        return self;
+    };
+}
+
 - (UIScrollView * (^)(BOOL))aozScrollEnabled {
     return ^(BOOL scrollEnabled) {
         self.scrollEnabled = scrollEnabled;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozDelaysContentTouches {
+    return ^(BOOL delaysContentTouches) {
+        self.delaysContentTouches = delaysContentTouches;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozAlwaysBounceHorizontal {
+    return ^(BOOL alwaysBounceHorizontal) {
+        self.alwaysBounceHorizontal = alwaysBounceHorizontal;
         return self;
     };
 }
@@ -64,9 +92,9 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozPagingEnabled {
-    return ^(BOOL pagingEnabled) {
-        self.pagingEnabled = pagingEnabled;
+- (UIScrollView * (^)(BOOL))aozCanCancelContentTouches {
+    return ^(BOOL canCancelContentTouches) {
+        self.canCancelContentTouches = canCancelContentTouches;
         return self;
     };
 }
@@ -85,38 +113,17 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozAlwaysBounceHorizontal {
-    return ^(BOOL alwaysBounceHorizontal) {
-        self.alwaysBounceHorizontal = alwaysBounceHorizontal;
-        return self;
-    };
-}
-
-- (UIScrollView * (^)(BOOL))aozCanCancelContentTouches {
-    return ^(BOOL canCancelContentTouches) {
-        self.canCancelContentTouches = canCancelContentTouches;
-        return self;
-    };
-}
-
-- (UIScrollView * (^)(BOOL))aozDelaysContentTouches {
-    return ^(BOOL delaysContentTouches) {
-        self.delaysContentTouches = delaysContentTouches;
-        return self;
-    };
-}
-
-- (UIScrollView * (^)(CGFloat))aozDecelerationRate {
-    return ^(CGFloat decelerationRate) {
-        self.decelerationRate = decelerationRate;
-        return self;
-    };
-}
-
 #pragma mark public: Scroll Indicator 
 - (UIScrollView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle {
     return ^(UIScrollViewIndicatorStyle indicatorStyle) {
         self.indicatorStyle = indicatorStyle;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozShowsVerticalScrollIndicator {
+    return ^(BOOL showsVerticalScrollIndicator) {
+        self.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
         return self;
     };
 }
@@ -135,17 +142,17 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozShowsVerticalScrollIndicator {
-    return ^(BOOL showsVerticalScrollIndicator) {
-        self.showsVerticalScrollIndicator = showsVerticalScrollIndicator;
-        return self;
-    };
-}
-
 #pragma mark public: Zooming and Panning
 - (UIScrollView * (^)(CGFloat))aozZoomScale {
     return ^(CGFloat zoomScale) {
         self.zoomScale = zoomScale;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozBouncesZoom {
+    return ^(BOOL bouncesZoom) {
+        self.bouncesZoom = bouncesZoom;
         return self;
     };
 }
@@ -164,24 +171,17 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozBouncesZoom {
-    return ^(BOOL bouncesZoom) {
-        self.bouncesZoom = bouncesZoom;
-        return self;
-    };
-}
-
 #pragma mark public: Keyboard and Index
-- (UIScrollView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode {
-    return ^(UIScrollViewKeyboardDismissMode keyboardDismissMode) {
-        self.keyboardDismissMode = keyboardDismissMode;
-        return self;
-    };
-}
-
 - (UIScrollView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode {
     return ^(UIScrollViewIndexDisplayMode indexDisplayMode) {
         self.indexDisplayMode = indexDisplayMode;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode {
+    return ^(UIScrollViewKeyboardDismissMode keyboardDismissMode) {
+        self.keyboardDismissMode = keyboardDismissMode;
         return self;
     };
 }
@@ -195,16 +195,16 @@
 }
 
 #pragma mark public: Layers
-- (UIScrollView * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UIScrollView * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UIScrollView * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UIScrollView * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -224,6 +224,13 @@
     };
 }
 
+- (UIScrollView * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UIScrollView * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -238,31 +245,10 @@
     };
 }
 
-- (UIScrollView * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UIScrollView * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UIScrollView * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UIScrollView * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UIScrollView * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -288,9 +274,23 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UIScrollView * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UIScrollView * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -303,16 +303,16 @@
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UIScrollView * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UIScrollView * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UIScrollView * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

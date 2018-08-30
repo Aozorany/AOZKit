@@ -21,16 +21,16 @@
 }
 
 #pragma mark public: Layers
-- (UIView * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UIView * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UIView * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UIView * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -50,6 +50,13 @@
     };
 }
 
+- (UIView * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UIView * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -64,31 +71,10 @@
     };
 }
 
-- (UIView * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UIView * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UIView * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UIView * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UIView * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -114,9 +100,23 @@
     };
 }
 
-- (UIView * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UIView * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UIView * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UIView * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -129,16 +129,16 @@
     };
 }
 
-- (UIView * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UIView * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UIView * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UIView * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

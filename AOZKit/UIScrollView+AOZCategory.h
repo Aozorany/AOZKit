@@ -16,64 +16,64 @@
 
 #pragma mark Display of Content
 - (UIScrollView * (^)(CGPoint))aozContentOffset;
-- (UIScrollView * (^)(CGSize))aozContentSize;
 - (UIScrollView * (^)(UIEdgeInsets))aozContentInset;
+- (UIScrollView * (^)(CGSize))aozContentSize;
 
 #pragma mark Managing Scrolling
+- (UIScrollView * (^)(CGFloat))aozDecelerationRate;
+- (UIScrollView * (^)(BOOL))aozPagingEnabled;
 - (UIScrollView * (^)(BOOL))aozScrollEnabled;
+- (UIScrollView * (^)(BOOL))aozDelaysContentTouches;
+- (UIScrollView * (^)(BOOL))aozAlwaysBounceHorizontal;
 - (UIScrollView * (^)(BOOL))aozDirectionalLockEnabled;
 - (UIScrollView * (^)(BOOL))aozScrollsToTop;
-- (UIScrollView * (^)(BOOL))aozPagingEnabled;
+- (UIScrollView * (^)(BOOL))aozCanCancelContentTouches;
 - (UIScrollView * (^)(BOOL))aozBounces;
 - (UIScrollView * (^)(BOOL))aozAlwaysBounceVertical;
-- (UIScrollView * (^)(BOOL))aozAlwaysBounceHorizontal;
-- (UIScrollView * (^)(BOOL))aozCanCancelContentTouches;
-- (UIScrollView * (^)(BOOL))aozDelaysContentTouches;
-- (UIScrollView * (^)(CGFloat))aozDecelerationRate;
 
 #pragma mark Scroll Indicator 
 - (UIScrollView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle;
+- (UIScrollView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 - (UIScrollView * (^)(UIEdgeInsets))aozScrollIndicatorInsets;
 - (UIScrollView * (^)(BOOL))aozShowsHorizontalScrollIndicator;
-- (UIScrollView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 
 #pragma mark Zooming and Panning
 - (UIScrollView * (^)(CGFloat))aozZoomScale;
+- (UIScrollView * (^)(BOOL))aozBouncesZoom;
 - (UIScrollView * (^)(CGFloat))aozMaximumZoomScale;
 - (UIScrollView * (^)(CGFloat))aozMinimumZoomScale;
-- (UIScrollView * (^)(BOOL))aozBouncesZoom;
 
 #pragma mark Keyboard and Index
-- (UIScrollView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 - (UIScrollView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode;
+- (UIScrollView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 
 #pragma mark Superviews
 - (UIScrollView * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UIScrollView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIScrollView * (^)(UIColor *))aozLayerBorderColor;
+- (UIScrollView * (^)(CGFloat))aozLayerBorderWidth;
 - (UIScrollView * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UIScrollView * (^)(CGRect))aozFrame;
+- (UIScrollView * (^)(CGAffineTransform))aozTransform;
 - (UIScrollView * (^)(CGRect))aozBounds;
 - (UIScrollView * (^)(CGPoint))aozCenter;
-- (UIScrollView * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UIScrollView * (^)(UIColor *))aozBackgroundColor;
-- (UIScrollView * (^)(BOOL))aozHidden;
-- (UIScrollView * (^)(CGFloat))aozAlpha;
+- (UIScrollView * (^)(BOOL))aozClipsToBounds;
 - (UIScrollView * (^)(BOOL))aozOpaque;
 - (UIScrollView * (^)(UIColor *))aozTintColor;
 - (UIScrollView * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UIScrollView * (^)(BOOL))aozClipsToBounds;
+- (UIScrollView * (^)(UIColor *))aozBackgroundColor;
+- (UIScrollView * (^)(CGFloat))aozAlpha;
+- (UIScrollView * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UIScrollView * (^)(BOOL))aozUserInteractionEnabled;
-- (UIScrollView * (^)(BOOL))aozMultipleTouchEnabled;
 - (UIScrollView * (^)(BOOL))aozExclusiveTouch;
+- (UIScrollView * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UIScrollView * (^)(UIViewContentMode))aozContentMode;

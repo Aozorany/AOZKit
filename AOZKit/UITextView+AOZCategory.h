@@ -13,21 +13,21 @@
 
 #pragma mark Text Attributes
 - (UITextView * (^)(NSString *))aozText;
-- (UITextView * (^)(NSAttributedString *))aozAttributedText;
-- (UITextView * (^)(UIFont *))aozFont;
-- (UITextView * (^)(UIColor *))aozTextColor;
 - (UITextView * (^)(BOOL))aozEditable;
-- (UITextView * (^)(BOOL))aozAllowsEditingTextAttributes;
-- (UITextView * (^)(UIDataDetectorTypes))aozDataDetectorTypes;
-- (UITextView * (^)(NSTextAlignment))aozTextAlignment;
-- (UITextView * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes;
-- (UITextView * (^)(NSDictionary<NSString *,id> *))aozLinkTextAttributes;
+- (UITextView * (^)(UIFont *))aozFont;
 - (UITextView * (^)(UIEdgeInsets))aozTextContainerInset;
+- (UITextView * (^)(NSAttributedString *))aozAttributedText;
+- (UITextView * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes;
+- (UITextView * (^)(UIDataDetectorTypes))aozDataDetectorTypes;
+- (UITextView * (^)(BOOL))aozAllowsEditingTextAttributes;
+- (UITextView * (^)(UIColor *))aozTextColor;
+- (UITextView * (^)(NSDictionary<NSString *,id> *))aozLinkTextAttributes;
+- (UITextView * (^)(NSTextAlignment))aozTextAlignment;
 
 #pragma mark Selection
-- (UITextView * (^)(NSRange))aozSelectedRange;
-- (UITextView * (^)(BOOL))aozClearsOnInsertion;
 - (UITextView * (^)(BOOL))aozSelectable;
+- (UITextView * (^)(BOOL))aozClearsOnInsertion;
+- (UITextView * (^)(NSRange))aozSelectedRange;
 
 #pragma mark Delegate
 - (UITextView * (^)(id<UITextViewDelegate>))aozDelegate;
@@ -40,64 +40,64 @@
 
 #pragma mark Display of Content
 - (UITextView * (^)(CGPoint))aozContentOffset;
-- (UITextView * (^)(CGSize))aozContentSize;
 - (UITextView * (^)(UIEdgeInsets))aozContentInset;
+- (UITextView * (^)(CGSize))aozContentSize;
 
 #pragma mark Managing Scrolling
+- (UITextView * (^)(CGFloat))aozDecelerationRate;
+- (UITextView * (^)(BOOL))aozPagingEnabled;
 - (UITextView * (^)(BOOL))aozScrollEnabled;
+- (UITextView * (^)(BOOL))aozDelaysContentTouches;
+- (UITextView * (^)(BOOL))aozAlwaysBounceHorizontal;
 - (UITextView * (^)(BOOL))aozDirectionalLockEnabled;
 - (UITextView * (^)(BOOL))aozScrollsToTop;
-- (UITextView * (^)(BOOL))aozPagingEnabled;
+- (UITextView * (^)(BOOL))aozCanCancelContentTouches;
 - (UITextView * (^)(BOOL))aozBounces;
 - (UITextView * (^)(BOOL))aozAlwaysBounceVertical;
-- (UITextView * (^)(BOOL))aozAlwaysBounceHorizontal;
-- (UITextView * (^)(BOOL))aozCanCancelContentTouches;
-- (UITextView * (^)(BOOL))aozDelaysContentTouches;
-- (UITextView * (^)(CGFloat))aozDecelerationRate;
 
 #pragma mark Scroll Indicator 
 - (UITextView * (^)(UIScrollViewIndicatorStyle))aozIndicatorStyle;
+- (UITextView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 - (UITextView * (^)(UIEdgeInsets))aozScrollIndicatorInsets;
 - (UITextView * (^)(BOOL))aozShowsHorizontalScrollIndicator;
-- (UITextView * (^)(BOOL))aozShowsVerticalScrollIndicator;
 
 #pragma mark Zooming and Panning
 - (UITextView * (^)(CGFloat))aozZoomScale;
+- (UITextView * (^)(BOOL))aozBouncesZoom;
 - (UITextView * (^)(CGFloat))aozMaximumZoomScale;
 - (UITextView * (^)(CGFloat))aozMinimumZoomScale;
-- (UITextView * (^)(BOOL))aozBouncesZoom;
 
 #pragma mark Keyboard and Index
-- (UITextView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 - (UITextView * (^)(UIScrollViewIndexDisplayMode))aozIndexDisplayMode;
+- (UITextView * (^)(UIScrollViewKeyboardDismissMode))aozKeyboardDismissMode;
 
 #pragma mark Superviews
 - (UITextView * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UITextView * (^)(CGFloat))aozLayerBorderWidth;
 - (UITextView * (^)(UIColor *))aozLayerBorderColor;
+- (UITextView * (^)(CGFloat))aozLayerBorderWidth;
 - (UITextView * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UITextView * (^)(CGRect))aozFrame;
+- (UITextView * (^)(CGAffineTransform))aozTransform;
 - (UITextView * (^)(CGRect))aozBounds;
 - (UITextView * (^)(CGPoint))aozCenter;
-- (UITextView * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UITextView * (^)(UIColor *))aozBackgroundColor;
-- (UITextView * (^)(BOOL))aozHidden;
-- (UITextView * (^)(CGFloat))aozAlpha;
+- (UITextView * (^)(BOOL))aozClipsToBounds;
 - (UITextView * (^)(BOOL))aozOpaque;
 - (UITextView * (^)(UIColor *))aozTintColor;
 - (UITextView * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UITextView * (^)(BOOL))aozClipsToBounds;
+- (UITextView * (^)(UIColor *))aozBackgroundColor;
+- (UITextView * (^)(CGFloat))aozAlpha;
+- (UITextView * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UITextView * (^)(BOOL))aozUserInteractionEnabled;
-- (UITextView * (^)(BOOL))aozMultipleTouchEnabled;
 - (UITextView * (^)(BOOL))aozExclusiveTouch;
+- (UITextView * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UITextView * (^)(UIViewContentMode))aozContentMode;

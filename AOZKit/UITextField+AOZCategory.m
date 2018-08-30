@@ -13,16 +13,30 @@
 @implementation UITextField (AOZCategory)
 
 #pragma mark public: Text Attributes
-- (UITextField * (^)(NSString *))aozText {
-    return ^(NSString * text) {
-        self.text = text;
+- (UITextField * (^)(NSAttributedString *))aozAttributedPlaceholder {
+    return ^(NSAttributedString * attributedPlaceholder) {
+        self.attributedPlaceholder = attributedPlaceholder;
         return self;
     };
 }
 
-- (UITextField * (^)(NSAttributedString *))aozAttributedText {
-    return ^(NSAttributedString * attributedText) {
-        self.attributedText = attributedText;
+- (UITextField * (^)(BOOL))aozSecureTextEntry {
+    return ^(BOOL secureTextEntry) {
+        self.secureTextEntry = secureTextEntry;
+        return self;
+    };
+}
+
+- (UITextField * (^)(UIReturnKeyType))aozReturnKeyType {
+    return ^(UIReturnKeyType returnKeyType) {
+        self.returnKeyType = returnKeyType;
+        return self;
+    };
+}
+
+- (UITextField * (^)(UIFont *))aozFont {
+    return ^(UIFont * font) {
+        self.font = font;
         return self;
     };
 }
@@ -34,9 +48,16 @@
     };
 }
 
-- (UITextField * (^)(NSAttributedString *))aozAttributedPlaceholder {
-    return ^(NSAttributedString * attributedPlaceholder) {
-        self.attributedPlaceholder = attributedPlaceholder;
+- (UITextField * (^)(NSAttributedString *))aozAttributedText {
+    return ^(NSAttributedString * attributedText) {
+        self.attributedText = attributedText;
+        return self;
+    };
+}
+
+- (UITextField * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes {
+    return ^(NSDictionary<NSString *,id> * typingAttributes) {
+        self.typingAttributes = typingAttributes;
         return self;
     };
 }
@@ -48,9 +69,9 @@
     };
 }
 
-- (UITextField * (^)(UIFont *))aozFont {
-    return ^(UIFont * font) {
-        self.font = font;
+- (UITextField * (^)(NSString *))aozText {
+    return ^(NSString * text) {
+        self.text = text;
         return self;
     };
 }
@@ -65,13 +86,6 @@
 - (UITextField * (^)(NSTextAlignment))aozTextAlignment {
     return ^(NSTextAlignment textAlignment) {
         self.textAlignment = textAlignment;
-        return self;
-    };
-}
-
-- (UITextField * (^)(NSDictionary<NSString *,id> *))aozTypingAttributes {
-    return ^(NSDictionary<NSString *,id> * typingAttributes) {
-        self.typingAttributes = typingAttributes;
         return self;
     };
 }
@@ -121,13 +135,6 @@
     };
 }
 
-- (UITextField * (^)(UIImage *))aozBackground {
-    return ^(UIImage * background) {
-        self.background = background;
-        return self;
-    };
-}
-
 - (UITextField * (^)(UIImage *))aozDisabledBackground {
     return ^(UIImage * disabledBackground) {
         self.disabledBackground = disabledBackground;
@@ -135,17 +142,17 @@
     };
 }
 
-#pragma mark public: Overlay Views
-- (UITextField * (^)(UITextFieldViewMode))aozClearButtonMode {
-    return ^(UITextFieldViewMode clearButtonMode) {
-        self.clearButtonMode = clearButtonMode;
+- (UITextField * (^)(UIImage *))aozBackground {
+    return ^(UIImage * background) {
+        self.background = background;
         return self;
     };
 }
 
-- (UITextField * (^)(UIView *))aozLeftView {
-    return ^(UIView * leftView) {
-        self.leftView = leftView;
+#pragma mark public: Overlay Views
+- (UITextField * (^)(UIView *))aozRightView {
+    return ^(UIView * rightView) {
+        self.rightView = rightView;
         return self;
     };
 }
@@ -157,9 +164,16 @@
     };
 }
 
-- (UITextField * (^)(UIView *))aozRightView {
-    return ^(UIView * rightView) {
-        self.rightView = rightView;
+- (UITextField * (^)(UIView *))aozLeftView {
+    return ^(UIView * leftView) {
+        self.leftView = leftView;
+        return self;
+    };
+}
+
+- (UITextField * (^)(UITextFieldViewMode))aozClearButtonMode {
+    return ^(UITextFieldViewMode clearButtonMode) {
+        self.clearButtonMode = clearButtonMode;
         return self;
     };
 }
@@ -203,16 +217,16 @@
 }
 
 #pragma mark public: Layers
-- (UITextField * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UITextField * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UITextField * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UITextField * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -232,6 +246,13 @@
     };
 }
 
+- (UITextField * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UITextField * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -246,31 +267,10 @@
     };
 }
 
-- (UITextField * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UITextField * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UITextField * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UITextField * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UITextField * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -296,9 +296,23 @@
     };
 }
 
-- (UITextField * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UITextField * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UITextField * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UITextField * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -311,16 +325,16 @@
     };
 }
 
-- (UITextField * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UITextField * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UITextField * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UITextField * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }

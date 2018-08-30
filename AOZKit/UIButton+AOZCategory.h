@@ -12,37 +12,37 @@
 @interface UIButton (AOZCategory)
 
 #pragma mark Edge Insets
-- (UIButton * (^)(UIEdgeInsets))aozContentEdgeInsets;
 - (UIButton * (^)(UIEdgeInsets))aozTitleEdgeInsets;
+- (UIButton * (^)(UIEdgeInsets))aozContentEdgeInsets;
 - (UIButton * (^)(UIEdgeInsets))aozImageEdgeInsets;
 
 #pragma mark Superviews
 - (UIButton * (^)(UIView *))aozAddToSuperview;
 
 #pragma mark Layers
-- (UIButton * (^)(CGFloat))aozLayerBorderWidth;
 - (UIButton * (^)(UIColor *))aozLayerBorderColor;
+- (UIButton * (^)(CGFloat))aozLayerBorderWidth;
 - (UIButton * (^)(CGFloat))aozLayerCornerRaduis;
 
 #pragma mark Bounds and Frames
 - (UIButton * (^)(CGRect))aozFrame;
+- (UIButton * (^)(CGAffineTransform))aozTransform;
 - (UIButton * (^)(CGRect))aozBounds;
 - (UIButton * (^)(CGPoint))aozCenter;
-- (UIButton * (^)(CGAffineTransform))aozTransform;
 
 #pragma mark Visual Appearance
-- (UIButton * (^)(UIColor *))aozBackgroundColor;
-- (UIButton * (^)(BOOL))aozHidden;
-- (UIButton * (^)(CGFloat))aozAlpha;
+- (UIButton * (^)(BOOL))aozClipsToBounds;
 - (UIButton * (^)(BOOL))aozOpaque;
 - (UIButton * (^)(UIColor *))aozTintColor;
 - (UIButton * (^)(UIViewTintAdjustmentMode))aozTintAdjustmentMode;
-- (UIButton * (^)(BOOL))aozClipsToBounds;
+- (UIButton * (^)(UIColor *))aozBackgroundColor;
+- (UIButton * (^)(CGFloat))aozAlpha;
+- (UIButton * (^)(BOOL))aozHidden;
 
 #pragma mark Events
 - (UIButton * (^)(BOOL))aozUserInteractionEnabled;
-- (UIButton * (^)(BOOL))aozMultipleTouchEnabled;
 - (UIButton * (^)(BOOL))aozExclusiveTouch;
+- (UIButton * (^)(BOOL))aozMultipleTouchEnabled;
 
 #pragma mark Resizing Behavior
 - (UIButton * (^)(UIViewContentMode))aozContentMode;

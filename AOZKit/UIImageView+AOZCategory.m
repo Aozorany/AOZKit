@@ -28,9 +28,9 @@
 }
 
 #pragma mark public: Animate Images
-- (UIImageView * (^)(NSArray<UIImage *> *))aozAnimationImages {
-    return ^(NSArray<UIImage *> * animationImages) {
-        self.animationImages = animationImages;
+- (UIImageView * (^)(NSInteger))aozAnimationRepeatCount {
+    return ^(NSInteger animationRepeatCount) {
+        self.animationRepeatCount = animationRepeatCount;
         return self;
     };
 }
@@ -49,9 +49,9 @@
     };
 }
 
-- (UIImageView * (^)(NSInteger))aozAnimationRepeatCount {
-    return ^(NSInteger animationRepeatCount) {
-        self.animationRepeatCount = animationRepeatCount;
+- (UIImageView * (^)(NSArray<UIImage *> *))aozAnimationImages {
+    return ^(NSArray<UIImage *> * animationImages) {
+        self.animationImages = animationImages;
         return self;
     };
 }
@@ -65,16 +65,16 @@
 }
 
 #pragma mark public: Layers
-- (UIImageView * (^)(CGFloat))aozLayerBorderWidth {
-    return ^(CGFloat layerBorderWidth) {
-        self.layer.borderWidth = layerBorderWidth;
+- (UIImageView * (^)(UIColor *))aozLayerBorderColor {
+    return ^(UIColor * layerBorderColor) {
+        self.layer.borderColor = layerBorderColor.CGColor;
         return self;
     };
 }
 
-- (UIImageView * (^)(UIColor *))aozLayerBorderColor {
-    return ^(UIColor * layerBorderColor) {
-        self.layer.borderColor = layerBorderColor.CGColor;
+- (UIImageView * (^)(CGFloat))aozLayerBorderWidth {
+    return ^(CGFloat layerBorderWidth) {
+        self.layer.borderWidth = layerBorderWidth;
         return self;
     };
 }
@@ -94,6 +94,13 @@
     };
 }
 
+- (UIImageView * (^)(CGAffineTransform))aozTransform {
+    return ^(CGAffineTransform transform) {
+        self.transform = transform;
+        return self;
+    };
+}
+
 - (UIImageView * (^)(CGRect))aozBounds {
     return ^(CGRect bounds) {
         self.bounds = bounds;
@@ -108,31 +115,10 @@
     };
 }
 
-- (UIImageView * (^)(CGAffineTransform))aozTransform {
-    return ^(CGAffineTransform transform) {
-        self.transform = transform;
-        return self;
-    };
-}
-
 #pragma mark public: Visual Appearance
-- (UIImageView * (^)(UIColor *))aozBackgroundColor {
-    return ^(UIColor * backgroundColor) {
-        self.backgroundColor = backgroundColor;
-        return self;
-    };
-}
-
-- (UIImageView * (^)(BOOL))aozHidden {
-    return ^(BOOL hidden) {
-        self.hidden = hidden;
-        return self;
-    };
-}
-
-- (UIImageView * (^)(CGFloat))aozAlpha {
-    return ^(CGFloat alpha) {
-        self.alpha = alpha;
+- (UIImageView * (^)(BOOL))aozClipsToBounds {
+    return ^(BOOL clipsToBounds) {
+        self.clipsToBounds = clipsToBounds;
         return self;
     };
 }
@@ -158,9 +144,23 @@
     };
 }
 
-- (UIImageView * (^)(BOOL))aozClipsToBounds {
-    return ^(BOOL clipsToBounds) {
-        self.clipsToBounds = clipsToBounds;
+- (UIImageView * (^)(UIColor *))aozBackgroundColor {
+    return ^(UIColor * backgroundColor) {
+        self.backgroundColor = backgroundColor;
+        return self;
+    };
+}
+
+- (UIImageView * (^)(CGFloat))aozAlpha {
+    return ^(CGFloat alpha) {
+        self.alpha = alpha;
+        return self;
+    };
+}
+
+- (UIImageView * (^)(BOOL))aozHidden {
+    return ^(BOOL hidden) {
+        self.hidden = hidden;
         return self;
     };
 }
@@ -173,16 +173,16 @@
     };
 }
 
-- (UIImageView * (^)(BOOL))aozMultipleTouchEnabled {
-    return ^(BOOL multipleTouchEnabled) {
-        self.multipleTouchEnabled = multipleTouchEnabled;
+- (UIImageView * (^)(BOOL))aozExclusiveTouch {
+    return ^(BOOL exclusiveTouch) {
+        self.exclusiveTouch = exclusiveTouch;
         return self;
     };
 }
 
-- (UIImageView * (^)(BOOL))aozExclusiveTouch {
-    return ^(BOOL exclusiveTouch) {
-        self.exclusiveTouch = exclusiveTouch;
+- (UIImageView * (^)(BOOL))aozMultipleTouchEnabled {
+    return ^(BOOL multipleTouchEnabled) {
+        self.multipleTouchEnabled = multipleTouchEnabled;
         return self;
     };
 }
